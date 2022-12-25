@@ -1,0 +1,11 @@
+{
+    "awsprofile": "devops-profile",
+    "stacks": [
+        {
+            "name": "test-template",
+            "template": "cfn/test_template.yml",
+            "params": "cfn/test_template_params.json",
+            "deploy_to": "dev"
+        }
+    ]
+}

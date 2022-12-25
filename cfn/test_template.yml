@@ -1,0 +1,22 @@
+---
+AWSTemplateFormatVersion: 2010-09-09
+
+Parameters:
+  Message:
+    Type: String
+    Default: "What do we have here?"
+
+Conditions:
+  Never:
+    !Equals [ "A", "B" ]
+
+Resources:
+  Test:
+    Type: Custom::NullResource
+    Condition: Never
+
+Outputs:
+  Message:
+    Value: !Ref Message
+    Export:
+      Name: !Join [":", [!Ref "AWS::StackName", "Message"]]
